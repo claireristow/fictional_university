@@ -13,22 +13,16 @@ get_header(); ?>
 </div>
 
 <div class="container container--narrow page-section">
-
-<ul class="link-list min-list">
-<?php
-while (have_posts()) {
-    the_post(); ?>
-    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>    
-        <?php 
-    }
-    echo paginate_links();
-    ?>
-</ul>
-
-    <hr class="section-break">
-
-    <p>Looking for a recap of past events? Check out our <a href="<?php echo site_url('/past-events') ?>">past events archive</a>.</p>
-
+    <ul class="link-list min-list">
+    <?php
+    while (have_posts()) {
+        the_post(); ?>
+        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>    
+            <?php 
+        }
+        echo paginate_links();
+        ?>
+    </ul>
 </div>
 
 
