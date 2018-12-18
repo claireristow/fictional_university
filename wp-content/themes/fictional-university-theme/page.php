@@ -1,28 +1,18 @@
 <?php get_header();
     
     while(have_posts()) {
-        the_post(); ?>
+        the_post();
 
-        <div class="page-banner">
-            <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg'); ?>);"></div>
-            <div class="page-banner__content container container--narrow">
-                <h1 class="page-banner__title"><?php the_title(); ?></h1>
-                <div class="page-banner__intro">
-                    <p>DON'T FORGET TO REPLACE ME LATER</p>
-                </div>
-            </div>  
-        </div>
+        page_banner(); ?>
 
         <div class="container container--narrow page-section">
             <?php
-                $the_parent = wp_get_post_parent_id(get_the_ID());
-                if ($the_parent) { ?>
-                    <div class="metabox metabox--position-up metabox--with-home-link">
-                        <p><a class="metabox__blog-home-link" href="<?php echo get_permalink($the_parent); ?>"><i class="fa fa-home" aria-hidden="true"></i>Back to <?php echo get_the_title($the_parent); ?></a> <span class="metabox__main"><?php the_title(); ?></span></p>
-                    </div>
-                <?php
-                }
-            ?>
+            $the_parent = wp_get_post_parent_id(get_the_ID());
+            if ($the_parent) { ?>
+                <div class="metabox metabox--position-up metabox--with-home-link">
+                    <p><a class="metabox__blog-home-link" href="<?php echo get_permalink($the_parent); ?>"><i class="fa fa-home" aria-hidden="true"></i>Back to <?php echo get_the_title($the_parent); ?></a> <span class="metabox__main"><?php the_title(); ?></span></p>
+                </div>
+            <?php } ?>
             
             <?php 
             $testArray = get_pages(array(
