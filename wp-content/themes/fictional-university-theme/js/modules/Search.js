@@ -63,14 +63,16 @@ class Search {
     }
 
     getResults() {
-        this.resultsDiv.html('Imagine real search results here!');
-        this.isSpinnerVisible = false;
+        console.log('getResults fired')
+        $.getJSON('http://fictional-university.local/wp-json/wp/v2/posts?search=' + this.searchField.val(), function(posts) {
+            alert(posts[0].title.rendered);
+        });
     }
 
     keyPressDispatcher(e) {
 
         // if "s" is pressed... 
-        if (e.keyCode == 83 && !this.isOverlayOpen && !$('input', 'textarea').isArray(':focus')) {
+        if (e.keyCode == 83 && !this.isOverlayOpen && !$('input', 'textarea').is(':focus')) {
             this.openOverlay();
         };
 
